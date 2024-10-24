@@ -1,0 +1,301 @@
+openapi: 3.0.3
+info:
+  title: workoutDB
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: 'http://localhost:8080/workoutDB'
+paths:
+  /evaluations:
+    get:
+      tags:
+        - Evaluations
+      summary: Get Evaluations
+      description: Get Evaluations
+      operationId: getEvaluations
+      parameters:
+        - name: search
+          in: query
+          schema:
+            type: string
+          description: >-
+            It's anoptional and allows to search by evaluation things.
+        - name: page
+          in: query
+          schema:
+            type: string
+          description: It's optional (default value is 1)
+        - name: rpp
+          in: query
+          schema:
+            type: string
+          description: results per page is optional (default value is 10)
+        - name: sortOrder
+          in: query
+          schema:
+            type: string
+          description: sortOrder is an optional (default value is desc)
+        - name: sortField
+          in: query
+          schema:
+            type: string
+          description: sortField is an optional (default value is evaluationID)
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        evaluationID:
+                          type: number
+                        runnerID:
+                          type: number
+                        workoutID:
+                          type: number
+                        evaluationDate:
+                          type: number
+                        city:
+                          type: string
+                        stateCode:
+                          type: string
+                        startTime:
+                          type: string
+                        endTime:
+                          type: string
+                        distance:
+                          type: number
+                        timeOfDay:
+                          type: string
+                        averageHeartRate:
+                          nullable: true
+                          type: number
+                        feelScoreRating:
+                          nullable: true
+                          type: number
+                        comments:
+                          nullable: true
+                          type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                      pageCount:
+                        type: number
+                      resultCount:
+                        type: number
+    post:
+      tags:
+        - Evaluations
+      summary: Add Evaluation
+      description: Add Evaluation
+      operationId: addEvaluation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                evaluationID:
+                  type: number
+                runnerID:
+                  type: number
+                workoutID:
+                  type: number
+                evaluationDate:
+                  type: number
+                city:
+                  type: string
+                stateCode:
+                  type: string
+                startTime:
+                  type: string
+                endTime:
+                  type: string
+                distance:
+                  type: number
+                timeOfDay:
+                  type: string
+                averageHeartRate:
+                  nullable: true
+                  type: number
+                feelScoreRating:
+                  nullable: true
+                  type: number
+                comments:
+                  nullable: true
+                  type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      evaluationID:
+                        type: number
+                      runnerID:
+                        type: number
+                      workoutID:
+                        type: number
+                      evaluationDate:
+                        type: number
+                      city:
+                        type: string
+                      stateCode:
+                        type: string
+                      startTime:
+                        type: string
+                      endTime:
+                        type: string
+                      distance:
+                        type: number
+                      timeOfDay:
+                        type: string
+                      averageHeartRate:
+                        nullable: true
+                        type: number
+                      feelScoreRating:
+                        nullable: true
+                        type: number
+                      comments:
+                        nullable: true
+                        type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+  /Evaluations/{id}:
+    put:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - Evaluations
+      summary: Update Evaluation
+      description: Update Evaluation
+      operationId: updateEvaluation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                evaluationID:
+                  type: number
+                runnerID:
+                  type: number
+                workoutID:
+                  type: number
+                evaluationDate:
+                  type: number
+                city:
+                  type: string
+                stateCode:
+                  type: string
+                startTime:
+                  type: string
+                endTime:
+                  type: string
+                distance:
+                  type: number
+                timeOfDay:
+                  type: string
+                averageHeartRate:
+                  nullable: true
+                  type: number
+                feelScoreRating:
+                  nullable: true
+                  type: number
+                comments:
+                  nullable: true
+                  type: string
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      evaluationID:
+                        type: number
+                      runnerID:
+                        type: number
+                      workoutID:
+                        type: number
+                      evaluationDate:
+                        type: number
+                      city:
+                        type: string
+                      stateCode:
+                        type: string
+                      startTime:
+                        type: string
+                      endTime:
+                        type: string
+                      distance:
+                        type: number
+                      timeOfDay:
+                        type: string
+                      averageHeartRate:
+                        nullable: true
+                        type: number
+                      feelScoreRating:
+                        nullable: true
+                        type: number
+                      comments:
+                        nullable: true
+                        type: string
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+    delete:
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      tags:
+        - Evaluations
+      summary: Delete Evaluation
+      description: Delete Evaluation
+      operationId: deleteEvaluation
+      responses:
+        '200':
+          description: Success Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    nullable: true
+                  meta:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+tags:
+  - name: Evaluations

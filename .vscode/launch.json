@@ -2,14 +2,18 @@
     "configurations": [
       {
         "type": "java",
-        "name": "WorkOrderProServiceApplication",
+        "name": "workoutDBApplication",
         "request": "launch",
-        "mainClass": "com.wsu.workorderproservice.WorkOrderProServiceApplication",
-        "projectName": "microservices-assignment-1",
+        "mainClass": "com.wsu.workoutDB.workoutDBApplication",
+        "projectName": "",
         "args": "",
         "env": {
           "SERVER_PORT": "8080",
-          "SERVER_CONTEXT_PATH": "/work-order-pro-service"
+          "SERVER_CONTEXT_PATH": "/workoutDB",
+          "DATABASE_URL": "jdbc:mariadb://host.docker.internal:3306/workoutDB",
+          "DATABASE_USERNAME": "user",
+          "DATABASE_PASSWORD": "password",
+          "DATABASE_DRIVER": "org.mariadb.jdbc.Driver"
         }
       }
     ]
