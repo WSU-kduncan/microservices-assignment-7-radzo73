@@ -46,7 +46,7 @@ public class EvalutionService {
                 .startTime((Time)evaluation[6])
                 .endTime((Time)evaluation[7])
                 .distance((BigDecimal)evaluation[8])
-                .timeOfDay((String)evaluation[9])
+                .timeOfDay((Character)evaluation[9])
                 .averageHeartRate((Byte)evaluation[10])
                 .feelScoreRating((Byte)evaluation[11])
                 .comments((String)evaluation[12])

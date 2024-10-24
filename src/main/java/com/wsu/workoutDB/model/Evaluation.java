@@ -18,45 +18,45 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Builder
-@Table(name = "Evaluation")
+@Entity
+@Table(name = "evaluation")
 public class Evaluation {
     @Id
-    @Column(name = "evaluationID", nullable = false)
+    @Column(name = "evaluation_id", nullable = false)
     private Integer evaluationID;
 
-    @Column(name = "runnerID", nullable = false)
+    @Column(name = "runner_id", nullable = false)
     private Integer runnerID;
 
-    @Column(name = "workoutID", nullable = false)
+    @Column(name = "workout_id", nullable = false)
     private Integer workoutID;
 
-    @Column(name = "evaluationDate", nullable = false)
+    @Column(name = "evaluation_date", nullable = false)
     private Date evaluationDate;
 
     @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "stateCode", nullable = false)
+    @Column(name = "state_code", nullable = false)
     private String stateCode;
 
-    @Column(name = "startTime", nullable = false)
+    @Column(name = "start_time", nullable = false)
     private Time startTime;
 
-    @Column(name = "endTime", nullable = false)
+    @Column(name = "end_time", nullable = false)
     private Time endTime;
 
     @Column(name = "distance", nullable = false)
     private BigDecimal distance;
 
-    @Column(name = "timeOfDay", nullable = false)
-    private String timeOfDay;
+    @Column(name = "time_of_day", nullable = false)
+    private Character timeOfDay;
 
-    @Column(name = "averageHeartRate")
+    @Column(name = "average_heart_rate")
     private byte averageHeartRate;
 
-    @Column(name = "feelScoreRating")
+    @Column(name = "feel_score_rating")
     private byte feelScoreRating;
 
     @Column(name = "comments")

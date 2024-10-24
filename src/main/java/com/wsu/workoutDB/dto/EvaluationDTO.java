@@ -31,7 +31,7 @@ public class EvaluationDTO {
     private Integer workoutID;
 
     @NotNull(message = "Evaluation Date must not be null or blank")
-    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss a")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date evaluationDate;
 
     @NotBlank(message = "City must not be null or blank")
@@ -54,9 +54,9 @@ public class EvaluationDTO {
     @NotNull(message = "Distance must not be null or blank")
     private BigDecimal distance;
 
-    @NotBlank(message = "Time Of Day must not be null or blank")
-    @Size(max = 1)
-    private String timeOfDay;
+    // @NotBlank(message = "Time Of Day must not be null or blank")
+    // @Size(min = 1, max = 1)
+    private Character timeOfDay;
 
     // @Size(max = 3)
     private Byte averageHeartRate;
